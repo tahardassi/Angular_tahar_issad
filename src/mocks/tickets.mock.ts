@@ -13,6 +13,6 @@ export const TICKETS_MOCKED: Ticket[] = [
     title: 'Titre 2',
     description: 'Description du voyage',
     date: dateToday,
-    student: 'Anakin'
+    student: 'Anakinh'
   },
 ];
