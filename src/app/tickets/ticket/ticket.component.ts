@@ -30,4 +30,8 @@ export class TicketComponent implements OnInit {
   selectTicket() {
     this.ticketHasBeenSelected.emit(true);
   }
+  
+  deleteTicket() {
+    this.deleteTicketRequested.emit(this.ticket);
+  }
 }
