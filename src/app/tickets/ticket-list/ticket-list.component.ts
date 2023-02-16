@@ -22,4 +22,12 @@ export class TicketListComponent implements OnInit {
     console.log('event received from child:', hasBeenSelected);
   }
 
+  /*
+  la méthode deleteTicket utilise le service TicketService pour 
+  supprimer le ticket sélectionné en appelant 
+  la méthode deleteTicket du service
+  */
+  deleteTicket(ticket: Ticket) {
+    this.ticketService.deleteTicket(ticket);
+  }
 }

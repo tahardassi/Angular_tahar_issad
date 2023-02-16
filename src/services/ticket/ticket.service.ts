@@ -31,4 +31,18 @@ export class TicketService {
     //Mise à jour de l’observable
     this.tickets$.next(this.ticketList);
   }
+
+  /*
+  La méthode deleteTicket(ticket: Ticket) prend un objet Ticket comme argument 
+  et utilise la méthode findIndex pour trouver l'indice de l'objet Ticket correspondant dans le tableau ticketList.
+  Si l'objet Ticket est trouvé, la méthode splice est utilisée pour le supprimer du tableau ticketList,
+  puis la méthode next de l'observable tickets$ est appelée pour émettre la nouvelle liste de tickets.
+  */
+  deleteTicket(ticket: Ticket) {
+    const index = this.ticketList.findIndex(t => t === ticket);
+    if (index !== -1) {
+      this.ticketList.splice(index, 1);
+      this.tickets$.next(this.ticketList);
+    }
+  }
 }
