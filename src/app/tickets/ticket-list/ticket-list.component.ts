@@ -24,10 +24,10 @@ export class TicketListComponent implements OnInit {
 
   /*
   la méthode deleteTicket utilise le service TicketService pour 
-  supprimer le ticket sélectionné en appelant 
-  la méthode deleteTicket du service
+  supprimer le ticket sélectionné en appelant la méthode deleteTicket du service
   */
   deleteTicket(ticket: Ticket) {
+    console.log("element supprimé");
     this.ticketService.deleteTicket(ticket);
   }
 }
