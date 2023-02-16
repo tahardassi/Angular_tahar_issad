@@ -18,6 +18,8 @@ export class TicketFormComponent implements OnInit {
    */
   public ticketForm: FormGroup;
 
+  public MAJOR_LIST : String[] = ['SI', 'GE', 'GB'];
+
   constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
     // Form creation
     this.ticketForm = this.formBuilder.group({

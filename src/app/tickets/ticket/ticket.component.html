@@ -6,6 +6,8 @@
 
   <i *ngIf= "ticket.major == 'SI'" class="far fa-vial"></i>
   <i *ngIf= "ticket.major == 'GE'" class= "far fa-map"></i>
+  <i *ngIf= "ticket.major == 'GB'" class= "fas fa-map"></i>
+
   {{ticket.major}}
 
   <button class="btn btn-danger" (click)="deleteTicket()">Delete</button>  
