@@ -1,10 +1,23 @@
+
 <div class="ticket-list">
+  <button class="btn btn-danger" (click)="showArchivedTickets()">Show Archived Tickets</button> 
+  <button class="btn btn-danger" (click)="hideArchivedTickets()">Hide Archived Tickets</button> 
   <div class="ticket" *ngFor="let ticket of ticketList">
       <!--Inputs & Output allow communication between parent & child components.-->
       <!--More information: https://angular.io/guide/component-interaction-->
-      <app-ticket [ticket]="ticket" 
+      <div *ngIf = "displayTicketArchived  == false && ticket.archived == false ">
+        <app-ticket [ticket]="ticket" 
         (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
-        (ticketHasBeenDeleted)="deleteTicket($event)">
-      </app-ticket>
+        (ticketHasBeenArchived)="archiveTicket($event)">
+        </app-ticket>
+      </div>
+      <div *ngIf = "displayTicketArchived  == true">
+        <div *ngIf = "ticket.archived == true ">
+          <app-ticket [ticket]="ticket" 
+          (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
+          (ticketHasBeenArchived)="archiveTicket($event)">
+          </app-ticket>
+        </div>
+      </div>
   </div>
 </div>

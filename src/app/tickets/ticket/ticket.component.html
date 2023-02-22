@@ -1,5 +1,7 @@
+
 <div class="card ticket" (click)="selectTicket()">
-  <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
+
+  <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->  
   <h3>{{ticket.title}}Titre Bis</h3>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
   <i class="far fa-user"></i> {{ticket.student}}&nbsp;&nbsp;
@@ -10,7 +12,7 @@
 
   {{ticket.major}}
 
-  <button class="btn btn-danger" (click)="deleteTicket()">Delete</button>  
+  <button class="btn btn-danger" (click)="archiveTicket()">Archive</button>  
 </div>
 
 

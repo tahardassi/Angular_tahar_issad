@@ -38,10 +38,19 @@ export class TicketService {
   Si l'objet Ticket est trouvé, la méthode splice est utilisée pour le supprimer du tableau ticketList,
   puis la méthode next de l'observable tickets$ est appelée pour émettre la nouvelle liste de tickets.
   */
+ /*
   deleteTicket(ticket: Ticket) {
-    const index = this.ticketList.findIndex(t => t === ticket);
-    if (index !== -1) {
-      this.ticketList.splice(index, 1);
+    const ticketFined = this.ticketList.find(t => t === ticket);
+    if (ticketFined !== null) {
+      //this.ticketList.splice(index, 1);
+      ticketFined.archived = true;
+      this.tickets$.next(this.ticketList);
+    }
+  }*/
+  archiveTicket(ticket: Ticket) {
+    const ticketFined = this.ticketList.find(t => t === ticket);
+    if (ticketFined !== null) {
+      ticketFined.archived = true;
       this.tickets$.next(this.ticketList);
     }
   }
