@@ -24,6 +24,7 @@ export class TicketService {
   }
 
   addTicket(ticket: Ticket) {
+    if(!ticket)return;
     // You need here to update the list of ticket and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
     //Ajout de nouvel ticket dans ticketList
@@ -31,27 +32,15 @@ export class TicketService {
     //Mise à jour de l’observable
     this.tickets$.next(this.ticketList);
   }
-
-  /*
-  La méthode deleteTicket(ticket: Ticket) prend un objet Ticket comme argument 
-  et utilise la méthode findIndex pour trouver l'indice de l'objet Ticket correspondant dans le tableau ticketList.
-  Si l'objet Ticket est trouvé, la méthode splice est utilisée pour le supprimer du tableau ticketList,
-  puis la méthode next de l'observable tickets$ est appelée pour émettre la nouvelle liste de tickets.
-  */
- /*
-  deleteTicket(ticket: Ticket) {
-    const ticketFined = this.ticketList.find(t => t === ticket);
-    if (ticketFined !== null) {
-      //this.ticketList.splice(index, 1);
-      ticketFined.archived = true;
-      this.tickets$.next(this.ticketList);
-    }
-  }*/
+  
   archiveTicket(ticket: Ticket) {
+    if(!ticket)return;
     const ticketFined = this.ticketList.find(t => t === ticket);
     if (ticketFined !== null) {
-      ticketFined.archived = true;
-      this.tickets$.next(this.ticketList);
-    }
+      if(ticketFined.archived === false){
+        ticketFined.archived = true;
+        this.tickets$.next(this.ticketList);
+      }else{console.log("Ticket service : ticket archivé deja")}
+    }else{console.log("Ticket service : ticket null");}
   }
 }
