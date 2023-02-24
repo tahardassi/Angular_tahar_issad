@@ -18,6 +18,7 @@ export class TicketFormComponent implements OnInit {
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms
    */
   public ticketForm: FormGroup;
+  public studentID : Number;
 
   public MAJOR_LIST : String[] = ['SI', 'GE', 'GB'];
 
@@ -26,7 +27,8 @@ export class TicketFormComponent implements OnInit {
     this.ticketForm = this.formBuilder.group({
       title: [''],
       description: [''],
-      major:['']
+      major:[''],
+      studentID:-1
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
