@@ -16,14 +16,14 @@ export class TicketListComponent implements OnInit {
 
   constructor(public ticketService: TicketService) {
     this.ticketService.tickets$.subscribe((tickets) => this.ticketList = tickets);
-    this.ticketService.tickets$.subscribe((tickets) => this.displayTicketArchived = false);
+    this.displayTicketArchived = false;
   }
 
   ngOnInit() {
   }
 
   ticketHasBeenSelected(hasBeenSelected: boolean) {
-    console.log('event received from child:', hasBeenSelected);
+    console.log('TicketList : event received from child:', hasBeenSelected);
   }
 
   /*
@@ -31,17 +31,15 @@ export class TicketListComponent implements OnInit {
   supprimer le ticket sélectionné en appelant la méthode deleteTicket du service
   */
   archiveTicket(ticket: Ticket) {
-    console.log("element archivé");
-    console.log(ticket.archived);
     this.ticketService.archiveTicket(ticket);
   }
 
   showArchivedTickets(){
     this.displayTicketArchived = true;
-    console.log(this.displayTicketArchived);
+    console.log("displayarchivedticket: " +this.displayTicketArchived);
   }
   hideArchivedTickets(){
     this.displayTicketArchived = false;
-    console.log(this.displayTicketArchived);
+    console.log("displayarchivedticket: " +this.displayTicketArchived);
   }
 }
