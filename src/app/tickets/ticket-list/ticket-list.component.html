@@ -1,7 +1,6 @@
 
 <div class="ticket-list">
-  <button class="btn btn-danger" (click)="showArchivedTickets()">Show Archived Tickets</button> 
-  <button class="btn btn-danger" (click)="hideArchivedTickets()">Hide Archived Tickets</button> 
+  <button class="btn btn-danger" id = "showTicketArchivedButton"(click)="showArchivedTickets()">Show Archived Tickets</button> 
   <div class="ticket" *ngIf = "displayTicketArchived  == true "> 
     <div  *ngFor="let ticket of ticketList">
       <!--Inputs & Output allow communication between parent & child components.-->
