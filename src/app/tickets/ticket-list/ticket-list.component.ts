@@ -35,11 +35,20 @@ export class TicketListComponent implements OnInit {
   }
 
   showArchivedTickets(){
-    this.displayTicketArchived = true;
-    console.log("displayarchivedticket: " +this.displayTicketArchived);
-  }
-  hideArchivedTickets(){
-    this.displayTicketArchived = false;
-    console.log("displayarchivedticket: " +this.displayTicketArchived);
+    const showTicketArchivedButton = document.getElementById("showTicketArchivedButton");
+    if(this.displayTicketArchived === false){
+      this.displayTicketArchived = true;
+      if(showTicketArchivedButton){
+        showTicketArchivedButton.innerHTML = "Hide Archived Tickets";
+      }
+      console.log("displayarchivedticket: " +this.displayTicketArchived);
+    }
+    else{
+      this.displayTicketArchived = false;
+      if(showTicketArchivedButton){
+        showTicketArchivedButton.innerHTML = "Show Archived Tickets";
+      }
+      console.log("displayarchivedticket: " +this.displayTicketArchived);
+    }
   }
 }
