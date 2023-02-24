@@ -5,7 +5,11 @@
   <h3>{{ticket.title}}</h3>
   <p>{{ticket.description}}</p>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
-  <i class="far fa-user"></i> {{ticket.student}}&nbsp;&nbsp;
+  
+     <!-- this line to display the student's name -->
+     <ng-container *ngIf="ticket.student">
+      <i class="fas fa-user"></i> {{ ticket.student.firstName }} {{ ticket.student.lastName }}
+    </ng-container>
 
   <i *ngIf= "ticket.major == 'SI'" class="far fa-vial"></i>
   <i *ngIf= "ticket.major == 'GE'" class= "far fa-map"></i>
