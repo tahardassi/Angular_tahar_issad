@@ -2,7 +2,8 @@
 <div class="card ticket" (click)="selectTicket()">
 
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->  
-  <h3>{{ticket.title}}Titre Bis</h3>
+  <h3>{{ticket.title}}</h3>
+  <p>{{ticket.description}}</p>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
   <i class="far fa-user"></i> {{ticket.student}}&nbsp;&nbsp;
 
@@ -11,7 +12,7 @@
   <i *ngIf= "ticket.major == 'GB'" class= "fas fa-map"></i>
 
   {{ticket.major}}
-
+  <br>
   <button class="btn btn-danger" (click)="archiveTicket()">Archive</button>  
 </div>
 
