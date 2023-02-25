@@ -35,7 +35,7 @@ export class TicketListComponent implements OnInit {
   }
 
   showArchivedTickets(){
-    const showTicketArchivedButton = document.getElementById("showTicketArchived");
+    const showTicketArchivedButton = document.getElementById("showTicketArchivedButton");
     if(this.displayTicketArchived === false){
       this.displayTicketArchived = true;
 
