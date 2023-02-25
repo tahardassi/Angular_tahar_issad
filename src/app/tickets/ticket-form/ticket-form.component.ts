@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { TicketService } from '../../../services/ticket/ticket.service';
 import { Ticket } from '../../../models/ticket';
 import { STUDENTS_MOCKED } from 'src/mocks/student.mock';
+import { StudentService } from 'src/services/student/student.service';
+import { Student } from 'src/models/student';
 
 @Component({
   selector: 'app-ticket-form',
@@ -17,12 +19,14 @@ export class TicketFormComponent implements OnInit {
    * TicketForm: Object which manages the form in our component.
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms
    */
+  public studentList: Student[] = [];
   public ticketForm: FormGroup;
-  public studentID : Number;
-
+  public studentID : number;
   public MAJOR_LIST : String[] = ['SI', 'GE', 'GB'];
 
-  constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
+  constructor(public formBuilder: FormBuilder, 
+    public ticketService: TicketService,
+    public studentService: StudentService) {
     // Form creation
     this.ticketForm = this.formBuilder.group({
       title: [''],
@@ -33,6 +37,13 @@ export class TicketFormComponent implements OnInit {
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
+
+      // Subscribe to students$ observable to get the list of students
+      this.studentService.students$.subscribe((students : Student[]) => {
+        this.studentList = students;
+      });
+
+
   }
 
   ngOnInit() {
@@ -41,9 +52,15 @@ export class TicketFormComponent implements OnInit {
   addTicket() {
     const ticketToCreate: Ticket = this.ticketForm.getRawValue() as Ticket;
     ticketToCreate.date = new Date();
-    ticketToCreate.student = STUDENTS_MOCKED[0];
+
+    ticketToCreate.studentID = Number(ticketToCreate.studentID);  
+
+    const findStudent : Student =  this.studentList.find(s => s.id == ticketToCreate.studentID);
+    if(findStudent) ticketToCreate.student = findStudent;
+    else console.log("Erreur student : Null");
+ 
+    ticketToCreate.student = findStudent;
     ticketToCreate.archived = false;
     this.ticketService.addTicket(ticketToCreate);
   }
-
 }
