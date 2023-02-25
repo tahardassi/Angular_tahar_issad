@@ -7,4 +7,5 @@ export interface Ticket {
   student?: Student;
   major?: string;
   archived?: boolean;
+  studentID?: number;
 }
