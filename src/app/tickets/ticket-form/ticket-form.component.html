@@ -18,6 +18,16 @@
   </select>
   </label>  
   <br>
+  <label for="studentID">Student
+    <select class="select-custom" id="studentID" name = "studentID"[formControlName]="'studentID'">
+      <option *ngFor = "let currentStudent of studentList " [value] = "currentStudent.id">
+        <ng-container *ngIf="currentStudent">
+          {{currentStudent.id}}-{{currentStudent.lastName}} {{currentStudent.firstName}}&nbsp;&nbsp;
+        </ng-container>
+      </option>
+    </select>
+    </label>
+    <br>
   <button type="submit" class="btn-custom" (click)="addTicket()">Create</button>
 </form>
 
