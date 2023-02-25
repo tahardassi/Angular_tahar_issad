@@ -6,6 +6,7 @@ import { TicketComponent, TicketFormComponent, TicketListComponent } from './tic
 import { TicketService } from '../services/ticket/ticket.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule // Import all dependencies
   ],
   providers: [TicketService], // All the services need to be provided
