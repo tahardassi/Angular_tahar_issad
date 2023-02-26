@@ -55,7 +55,7 @@ export class TicketFormComponent implements OnInit {
 
     ticketToCreate.studentID = Number(ticketToCreate.studentID);  
 
-    const findStudent : Student =  this.studentList.find(s => s.id == ticketToCreate.studentID);
+    const findStudent : Student =  this.studentList.find(s => s.studentId == ticketToCreate.studentID);
     if(findStudent) ticketToCreate.student = findStudent;
     else console.log("Erreur student : Null");
  

@@ -20,9 +20,9 @@
   <br>
   <label for="studentID">Student
     <select class="select-custom" id="studentID" name = "studentID"[formControlName]="'studentID'">
-      <option *ngFor = "let currentStudent of studentList " [value] = "currentStudent.id">
+      <option *ngFor = "let currentStudent of studentList " [value] = "currentStudent.studentId">
         <ng-container *ngIf="currentStudent">
-          {{currentStudent.id}}-{{currentStudent.lastName}} {{currentStudent.firstName}}&nbsp;&nbsp;
+          {{currentStudent.studentId}}-{{currentStudent.LastName}} {{currentStudent.FrstName}}&nbsp;&nbsp;
         </ng-container>
       </option>
     </select>

@@ -1,5 +1,5 @@
 export interface Student{
-    id? : Number;
-    firstName? : String;
-    lastName? : String;
+    studentId? : number;
+    FrstName? : String;
+    LastName? : String;
 }

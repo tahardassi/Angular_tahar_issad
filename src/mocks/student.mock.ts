@@ -2,13 +2,13 @@ import { Student } from '../models/student';
 
 export const STUDENTS_MOCKED: Student[] = [
     {
-        id : 0,
-        firstName : "Jean-Yves",
-        lastName : "Delmotte"
+        studentId : 0,
+        FrstName : "Jean-Yves",
+        LastName : "Delmotte"
     },
     {
-        id : 1,
-        firstName:"Rémi",
-        lastName:"Pourtier"
+        studentId : 1,
+        FrstName:"Rémi",
+        LastName:"Pourtier"
     }
 ];
